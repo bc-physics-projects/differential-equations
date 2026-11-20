@@ -47,7 +47,6 @@ nalgebra = { version = "0.35", optional = true } # Linear algebra state backend
 num-complex = { version = "^0.4.6", optional = true } # Complex number state backend
 differential-equations-derive = { version = "0.2.2", path = "derive", default-features = false } # Derives State trait on structs
 polars = { version = "^0.55.2", optional = true, default-features = false, features = [
-    "dtype-slim",
     "dtype-struct",
 ] } # DataFrame integration for the solution
 serde = { version = "1.0.229", features = [
