@@ -24,14 +24,14 @@ include = [
     "assets/*",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
 ]
 
 [features]
 default = []
 nalgebra = ["dep:nalgebra", "differential-equations-derive/nalgebra"]
 num-complex = ["dep:num-complex", "differential-equations-derive/num-complex"]
-polars = ["dep:polars"]
+polars = ["dep:polars", "polars/csv"]
 serde = ["dep:serde"]
 ndarray = ["dep:ndarray", "differential-equations-derive/ndarray"]
 faer = ["dep:faer", "differential-equations-derive/faer"]
@@ -50,13 +50,17 @@ polars = { version = "^0.55.2", optional = true, default-features = false, featu
     "dtype-slim",
     "dtype-struct",
 ] } # DataFrame integration for the solution
-serde = { version = "1.0.229", features = ["derive"], optional = true } # solution serialization/deserialization
+serde = { version = "1.0.229", features = [
+    "derive",
+], optional = true } # solution serialization/deserialization
 ndarray = { version = "0.17.2", optional = true }
 faer = { version = "0.24.4", optional = true }
 
 [dev-dependencies]
 quill = "0.2.0" # Plotting for examples
-criterion = { version = "0.8.2", features = ["html_reports"] } # Benchmarking library
+criterion = { version = "0.8.2", features = [
+    "html_reports",
+] } # Benchmarking library
 num-dual = "0.15" # Dual numbers
 rand = "0.10.3" # Random number generation for SDE examples
 rand_distr = "0.6.0" # Random distributions for SDE examples
